@@ -1,23 +1,23 @@
-# Parking discovery service
+# Servicio de búsqueda de estacionamientos
 
-Maintains the geographic search projection used to find parking spaces.
+Mantiene la proyección geográfica utilizada para encontrar estacionamientos.
 
-## Responsibilities
+## Responsabilidades
 
-- Updates its read model from supply and reservation events.
-- Searches by location and other requested criteria; results are informational, not a final availability guarantee.
+- Actualiza su modelo de consulta a partir de eventos de publicaciones y reservas.
+- Busca por ubicación y otros criterios. Los resultados son informativos: la reserva valida la disponibilidad definitiva.
 
-## Technology
+## Tecnologías
 
-TypeScript, NestJS, PostGIS, RabbitMQ.
+TypeScript, NestJS, PostGIS y RabbitMQ.
 
-## C4 architecture
+## Arquitectura C4
 
-The diagram is a C4 **container view** focused on this repository and its relevant neighbors. It is generated from [Structurizr DSL](docs/architecture/workspace.dsl) using default styles, without custom colors. Arrows show the direction of an interaction; the full model also records message flows.
+El diagrama muestra una **vista de contenedores C4** centrada en este componente y sus relaciones relevantes. Se genera desde [Structurizr DSL](docs/architecture/workspace.dsl) con los estilos predeterminados, sin colores personalizados. Las flechas indican la dirección de cada interacción. El diagrama se conserva en inglés.
 
-![C4 container view: Parking discovery service](docs/architecture/containers.svg)
+![Diagrama C4 de Servicio de búsqueda de estacionamientos](docs/architecture/containers.svg)
 
-To inspect or regenerate the diagram, open `docs/architecture/workspace.dsl` in Structurizr. With the Structurizr CLI and Graphviz installed:
+Para consultar o regenerar el diagrama, abra `docs/architecture/workspace.dsl` en Structurizr. Con Structurizr CLI y Graphviz instalados:
 
 ```sh
 structurizr.sh validate -workspace docs/architecture/workspace.dsl
@@ -26,7 +26,7 @@ structurizr.sh export -workspace docs/architecture/workspace.dsl -format dot -ou
 dot -Tsvg /tmp/parklink-diagram/structurizr-Containers.dot -o docs/architecture/containers.svg
 ```
 
-## Build in the integrated workspace
+## Compilación en el espacio integrado
 
 ```sh
 npm ci
@@ -34,6 +34,6 @@ npm run build:shared
 npm run build -w @parklink/parking-discovery-service
 ```
 
-## Repository boundary
+## Relación con el proyecto
 
-This repository is a snapshot of `services/parking-discovery-service` from [parklink-platform](https://github.com/1ASI0728-2620-16363-ParkLink/parklink-platform). Use the integrated workspace for the root npm configuration, shared dependencies, Docker build context, tests and local infrastructure. The repositories do not automatically synchronize.
+Este repositorio es una copia independiente de `services/parking-discovery-service` en [parklink-platform](https://github.com/1ASI0728-2620-16363-ParkLink/parklink-platform). Use el espacio integrado para la configuración npm, las dependencias compartidas, el contexto de Docker, las pruebas y la infraestructura local. Los repositorios no se sincronizan automáticamente.
